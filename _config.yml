@@ -1,0 +1,32 @@
+title: 前端代码规范
+subtitle: "Front-End Coding Guidelines"
+description: "Best Coding Guidelines For Front-End Developer."
+author:
+language: zh-cn
+timezone: UTC
+url: https://hexo.io
+root: /
+permalink: news/:year/:month/:day/:title/
+archive_dir: news
+code_dir: downloads/code
+new_post_name: :year-:month-:day-:title.md # File name of new posts
+post_asset_folder: true
+highlight:
+  enable: true
+  line_number: false
+per_page: 0
+
+theme: navy
+deploy:
+  type: git
+  repo: git@github.com:wdzjfe/guide.git
+  branch: gh-pages
+
+disqus_shortname:
+google_analytics:
+fb_admins:
+twitter:
+github: wdzjfe/guide
+gh:
+  user: wdzjfe
+  repo: guide
