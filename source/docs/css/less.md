@@ -81,6 +81,7 @@ title: LESS 规范
   background-color: black;
   color: #ddd;
 }
+
 .class2 {
   background-color: white;
   color: #555;
@@ -99,9 +100,11 @@ Less 为我们提供了嵌套的能力, 而不是合并在样式表中.假设我
 #header {
   color: black;
 }
+
 #header .navigation {
   font-size: 12px;
 }
+
 #header .logo {
   width: 300px;
 }
@@ -154,9 +157,9 @@ Less 为我们提供了嵌套的能力, 而不是合并在样式表中.假设我
   @media screen {
     color: green;
     @media (min-width:768px) {
-    color: red;
+      color: red;
     }
-    }
+  }
   @media tv {
     color: black;
   }
@@ -169,11 +172,13 @@ Less 为我们提供了嵌套的能力, 而不是合并在样式表中.假设我
     color: green;
   }
 }
+
 @media screen and (min-width: 768px) {
   .screencolor {
     color: red;
   }
 }
+
 @media tv {
   .screencolor {
     color: black;
@@ -189,6 +194,7 @@ Less 为我们提供了嵌套的能力, 而不是合并在样式表中.假设我
 .header {
   .menu {
     border-radius: 5px;
+
     .no-borderradius & {
       background-image: url('images/button-background.png');
     }
@@ -258,10 +264,12 @@ Less 提供了许多用于转换颜色，处理字符串和进行算术运算的
     display: block;
     border: 1px solid black;
     background-color: grey;
+
     &:hover {
       background-color: white
     }
   }
+
   .tab { ... }
   .citation { ... }
 }
@@ -287,6 +295,7 @@ Less 中的作用域与编程语言中的作用域概念非常相似。首先会
 
 #page {
   @var: white;
+
   #header {
     color: @var; // white
   }
@@ -300,6 +309,7 @@ Less 中的作用域与编程语言中的作用域概念非常相似。首先会
   #header {
     color: @var; // white
   }
+  
   @var: white;
 }
 ```

@@ -15,6 +15,8 @@ page:
 sidebar:
   docs:
     getting_started: 开始使用
+    markdown: Markdown 语法
+    how_to_ask_questions_the_smart_way: 提问的智慧
     overview: 概述
     common: 通用
     issues: 常见问题
@@ -35,10 +37,11 @@ sidebar:
     css_sass: SASS 规范
     css_reset: 重置样式
     css_query: 媒体查询
+    css_compat: 开发经验
     css_webkit: 移动端常用私有属性
     js: Javascript 规范
     js_code: 代码规范
-    js_compat: ECMAScript 兼容性
+    js_compat: 开发经验
     js_jQuery: jQuery 代码规范
     js_performance: 性能优化
     js_resource: 资源

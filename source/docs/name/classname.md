@@ -1,4 +1,4 @@
-title: ClassName命名
+title: ClassName 命名
 ---
 
 
@@ -24,7 +24,7 @@ ClassName的命名应该尽量精短、明确，必须以**字母开头命名**�
 </div>
   
 <!-- 这个是全站公用模块，祖先模块允许直接出现下划线 -->
-<div class="mod_info">
+<div class="mod-info">
   <div class="mod-info-son"></div>
   <div class="mod-info-son"></div>
   ...   
