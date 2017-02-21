@@ -19,6 +19,12 @@ docs:
     css_reset: css/reset.html
     css_query: css/query.html
     css_webkit: css/webkit.html
+  js:
+    js_code: js/code.html
+    js_compat: js/compat.html
+    js_jQuery: js/jQuery.html
+    js_performance: js/performance.html
+    js_resource: js/resource.html
   name:
     name_dir: name/dir.html
     name_image: name/image.html

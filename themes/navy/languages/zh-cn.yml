@@ -36,6 +36,12 @@ sidebar:
     css_reset: 重置样式
     css_query: 媒体查询
     css_webkit: 移动端常用私有属性
+    js: Javascript 规范
+    js_code: 代码规范
+    js_compat: ECMAScript 兼容性
+    js_jQuery: jQuery 代码规范
+    js_performance: 性能
+    js_resource: 资源
     name: 命名规范
     name_dir: 目录命名
     name_htmlcss: HTML/CSS 命名

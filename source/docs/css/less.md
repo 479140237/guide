@@ -54,6 +54,39 @@ title: LESS 规范
 
 类 *.bordered* 的属性现在就会同事呈现在 *#menu a* 和 *.post a* 中了（注意，同样可以将 *#ids* 作为 mixins）。
 
+当你想要匹配表达式，而不是简单的值或者参数数量时，guard是很有用的。如果你熟悉函数式编程，那么你肯定遇到过这类问题。
+
+为了尽可能的保持CSS声明的本质，Less选择实现了guarded mixins，而不是if/else语句，也就是说并不是一脉相承的实现@media查询的规范。
+
+让我们从一个例子开始：
+
+```css
+当你想要匹配表达式，而不是简单的值或者参数数量时，guard是很有用的。如果你熟悉函数式编程，那么你肯定遇到过这类问题。
+
+为了尽可能的保持CSS声明的本质，Less选择实现了guarded mixins，而不是if/else语句，也就是说并不是一脉相承的实现@media查询的规范。
+
+让我们从一个例子开始：
+```
+
+这里有一个when关键字，它引进了一个guard序列（在这里只有一个guard）。现在，假设我们运行以下代码：
+
+```css
+.class1 { .mixin(#ddd) }
+.class2 { .mixin(#555) }
+```
+
+会得到：
+```css
+.class1 {
+  background-color: black;
+  color: #ddd;
+}
+.class2 {
+  background-color: white;
+  color: #555;
+}
+```
+
 Learn more
 
 * (More about mixins)[http://www.css88.com/doc/less/features/#mixins-feature]
@@ -145,6 +178,32 @@ Less 为我们提供了嵌套的能力, 而不是合并在样式表中.假设我
   .screencolor {
     color: black;
   }
+}
+```
+
+要前置插入一个选择器给继承的(父)选择器时它是很有用的。用过将&放到当前选择器之后就可以做到这一点。
+
+比如，使用Modernizr时，你可能希望基于要支持的特性来指定不同的规则：
+
+```css
+.header {
+  .menu {
+    border-radius: 5px;
+    .no-borderradius & {
+      background-image: url('images/button-background.png');
+    }
+  }
+}
+```
+
+选择器*.no-borderradius &*会前置插入*.no-borderradius*给它的父选择器*.header .menu*，最后变成*.no-borderradius .header .menu*形式输出：
+
+```css
+.header .menu {
+  border-radius: 5px;
+}
+.no-borderradius .header .menu {
+  background-image: url('images/button-background.png');
 }
 ```
 
