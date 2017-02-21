@@ -19,6 +19,7 @@ title: LESS 规范
 ```
 
 输出：
+
 ```css
 #header {
   color: #6c94be;
@@ -61,11 +62,17 @@ title: LESS 规范
 让我们从一个例子开始：
 
 ```css
-当你想要匹配表达式，而不是简单的值或者参数数量时，guard是很有用的。如果你熟悉函数式编程，那么你肯定遇到过这类问题。
+.mixin (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
 
-为了尽可能的保持CSS声明的本质，Less选择实现了guarded mixins，而不是if/else语句，也就是说并不是一脉相承的实现@media查询的规范。
+.mixin (@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
 
-让我们从一个例子开始：
+.mixin (@a) {
+  color: @a;
+}
 ```
 
 这里有一个when关键字，它引进了一个guard序列（在这里只有一个guard）。现在，假设我们运行以下代码：
@@ -76,6 +83,7 @@ title: LESS 规范
 ```
 
 会得到：
+
 ```css
 .class1 {
   background-color: black;
@@ -153,19 +161,22 @@ Less 为我们提供了嵌套的能力, 而不是合并在样式表中.假设我
 媒体查询同样可以嵌套在选择器中。选择器将被复制到媒体查询体内：
 
 ```css
-.screencolor{
+.screencolor {
   @media screen {
     color: green;
     @media (min-width:768px) {
       color: red;
     }
   }
+
   @media tv {
     color: black;
   }
 }
 ```
+
 输出
+
 ```css
 @media screen {
   .screencolor {
