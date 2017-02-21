@@ -1398,4 +1398,6 @@ title: 代码规范
     }(this);
     ```
 
+## 其他
 
+  - [代码整洁之道](https://github.com/ryanmcdermott/clean-code-javascript)
