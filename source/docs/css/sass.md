@@ -1,4 +1,4 @@
-title: SASS规范
+title: SASS 规范
 ---
 
 ## 语法选用
