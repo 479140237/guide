@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
   <meta charset="utf-8">
-  <title>前端代码规范</title>
+  <title>LESS 规范 | 前端代码规范</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
@@ -49,14 +49,66 @@
           <div class="article">
             <div class="inner">
               <header class="article-header">
-                <h1 class="article-title" itemprop="name"></h1>
+                <h1 class="article-title" itemprop="name">LESS 规范</h1>
                 <a href="https://github.com/hexojs/site/edit/master/source/docs/css/less.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
               </header>
               <div class="article-content" itemprop="articleBody">
-                
+                <p>作为一种 CSS 扩展, Less 不仅向后兼容 CSS, 它还使用现有的 CSS 语法新增了额外的特性. 这使得学习 Less 更轻松, 一旦有任何问题，可以随时退回使用标准的 CSS.</p>
+<h2 id="Variables-（变量）" class="article-heading"><a href="#Variables-（变量）" class="headerlink" title="Variables （变量）"></a>Variables （变量）<a class="article-anchor" href="#Variables-（变量）" aria-hidden="true"></a></h2><p>顾明思义：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">@nice-blue: #5B83AD;</div><div class="line">@light-blue: @nice-blue + #111;</div><div class="line"></div><div class="line">#header &#123;</div><div class="line">  color: @light-blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-id">#header</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#6c94be</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意，由于变量只能定义一次，实际上他们就是“常量”.</p>
+<h2 id="Mixins-（混合）" class="article-heading"><a href="#Mixins-（混合）" class="headerlink" title="Mixins （混合）"></a>Mixins （混合）<a class="article-anchor" href="#Mixins-（混合）" aria-hidden="true"></a></h2><p>混合就是一种将一系列属性从一个规则集引入(“混合”)到另一个规则集的方式。假设我们有以下样式:</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.bordered</span> &#123;</div><div class="line">  <span class="attribute">border-top</span>: dotted <span class="number">1px</span> black;</div><div class="line">  <span class="attribute">border-bottom</span>: solid <span class="number">2px</span> black;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们希望在另一个规则集内部使用上面这些属性。那么，我们就只需要访问我们想要的属性所在类的名称即可，就像下面这样：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">#menu a &#123;</div><div class="line">  color: #111;</div><div class="line">  .bordered;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.post a &#123;</div><div class="line">  color: red;</div><div class="line">  .bordered;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>类 <em>.bordered</em> 的属性现在就会同事呈现在 <em>#menu a</em> 和 <em>.post a</em> 中了（注意，同样可以将 <em>#ids</em> 作为 mixins）。</p>
+<p>Learn more</p>
+<ul>
+<li>(More about mixins)[<a href="http://www.css88.com/doc/less/features/#mixins-feature" target="_blank" rel="external">http://www.css88.com/doc/less/features/#mixins-feature</a>]</li>
+<li>(Parametric Mixins)[<a href="http://www.css88.com/doc/less/features/#mixins-parametric-feature" target="_blank" rel="external">http://www.css88.com/doc/less/features/#mixins-parametric-feature</a>]</li>
+</ul>
+<h2 id="Nested-rules-（嵌套规则）" class="article-heading"><a href="#Nested-rules-（嵌套规则）" class="headerlink" title="Nested rules （嵌套规则）"></a>Nested rules （嵌套规则）<a class="article-anchor" href="#Nested-rules-（嵌套规则）" aria-hidden="true"></a></h2><p>Less 为我们提供了嵌套的能力, 而不是合并在样式表中.假设我们有下面的 CSS:<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-id">#header</span> &#123;</div><div class="line">  <span class="attribute">color</span>: black;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#header</span> <span class="selector-class">.navigation</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#header</span> <span class="selector-class">.logo</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在 Less 中，我们可以以下面这种方式编写:<br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">#header &#123;</div><div class="line">  color: black;</div><div class="line"></div><div class="line">  .navigation &#123;</div><div class="line">    font-size: 12px;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  .logo &#123;</div><div class="line">    width: 300px;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样的代码更简洁, 它模仿了 HTML 的结构.</p>
+<p>使用这种方法照样可以在混合中包含伪类(pseudo-selectors)。下面是一个经典的 clearfix 代码，在这里使用 mixin 重写了（&amp; 表示当前选择器的父选择器）:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">.clearfix &#123;</div><div class="line">  display: block;</div><div class="line">  zoom: 1;</div><div class="line"></div><div class="line">  &amp;:after &#123;</div><div class="line">    content: " ";</div><div class="line">    display: block;</div><div class="line">    font-size: 0;</div><div class="line">    height: 0;</div><div class="line">    clear: both;</div><div class="line">    visibility: hidden;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参见</p>
+<ul>
+<li><a href="http://www.css88.com/doc/less/features/#parent-selectors-feature" target="_blank" rel="external">Parent Selectors（父级选择器）</a></li>
+</ul>
+<h2 id="Media-query-bubbling-and-nested-media-queries-（媒体查询合嵌套媒体查询）" class="article-heading"><a href="#Media-query-bubbling-and-nested-media-queries-（媒体查询合嵌套媒体查询）" class="headerlink" title="Media query bubbling and nested media queries （媒体查询合嵌套媒体查询）"></a>Media query bubbling and nested media queries （媒体查询合嵌套媒体查询）<a class="article-anchor" href="#Media-query-bubbling-and-nested-media-queries-（媒体查询合嵌套媒体查询）" aria-hidden="true"></a></h2><p>媒体查询同样可以嵌套在选择器中。选择器将被复制到媒体查询体内：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">.screencolor&#123;</div><div class="line">  @media screen &#123;</div><div class="line">    color: green;</div><div class="line">    @media (min-width:768px) &#123;</div><div class="line">    color: red;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">  @media tv &#123;</div><div class="line">    color: black;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">@<span class="keyword">media</span> screen &#123;</div><div class="line">  <span class="selector-class">.screencolor</span> &#123;</div><div class="line">    <span class="attribute">color</span>: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">768px</span>) &#123;</div><div class="line">  <span class="selector-class">.screencolor</span> &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> tv &#123;</div><div class="line">  <span class="selector-class">.screencolor</span> &#123;</div><div class="line">    <span class="attribute">color</span>: black;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Operations-（运算）" class="article-heading"><a href="#Operations-（运算）" class="headerlink" title="Operations （运算）"></a>Operations （运算）<a class="article-anchor" href="#Operations-（运算）" aria-hidden="true"></a></h2><p>任何数值，颜色和变量都可以进行运算。这里有一对示例：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">@base: 5%;</div><div class="line">@filler: @base * 2;</div><div class="line">@other: @base + @filler;</div><div class="line"></div><div class="line">color: #888 / 4;</div><div class="line">background-color: @base-color + #111;</div><div class="line">height: 100% / 2 + @filler;</div></pre></td></tr></table></figure>
+<p>最后的输出结果与你预期的一样 – Less 能够推断颜色和单位之间的区别。如果在一个运算中使用了单位，比如：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">@var: 1px + 5;</div></pre></td></tr></table></figure>
+<p>在这个例子中 Less 会在最终输出结果中使用这个单位 – 6px。</p>
+<h2 id="Functions-（函数）" class="article-heading"><a href="#Functions-（函数）" class="headerlink" title="Functions （函数）"></a>Functions （函数）<a class="article-anchor" href="#Functions-（函数）" aria-hidden="true"></a></h2><p>Less 提供了许多用于转换颜色，处理字符串和进行算术运算的函数。他们在函数参考一节有详细的的介绍。</p>
+<p>这些函数使用起来非常简单。在下面的例子中我们使用 <em>percentage</em> 将 0.5 转换为 50%，然后将基础颜色值的饱和度增加了 5%，最后将背景颜色的亮度增加了 25% 之后又将色相值增加 8:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">@base: #f04615;</div><div class="line">@width: 0.5;</div><div class="line"></div><div class="line">.class &#123;</div><div class="line">  width: percentage(@width); // returns `50%`</div><div class="line">  color: saturate(@base, 5%);</div><div class="line">  background-color: spin(lighten(@base, 25%), 8);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Namespaces-and-Accessors-（命名空间和访问器）" class="article-heading"><a href="#Namespaces-and-Accessors-（命名空间和访问器）" class="headerlink" title="Namespaces and Accessors （命名空间和访问器）"></a>Namespaces and Accessors （命名空间和访问器）<a class="article-anchor" href="#Namespaces-and-Accessors-（命名空间和访问器）" aria-hidden="true"></a></h2><p>(不要将它与 <a href="http://www.w3.org/TR/css3-namespace/" target="_blank" rel="external">CSS <em>@namespace</em></a> 或 <a href="http://www.w3.org/TR/css3-selectors/#typenmsp" target="_blank" rel="external">namespace 选择器</a>混为一谈)。</p>
+<p>有时候，出于组织的目的，或者为了提供一些封装，你会希望将你的mixins 组合在一起。在 Less 中做到这一点非常直观，假设你想在 #bundle 下捆绑一些 mixins 和变量，以便稍候复用或者分发：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">#bundle &#123;</div><div class="line">  .button &#123;</div><div class="line">    display: block;</div><div class="line">    border: 1px solid black;</div><div class="line">    background-color: grey;</div><div class="line">    &amp;:hover &#123;</div><div class="line">      background-color: white</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  .tab &#123; ... &#125;</div><div class="line">  .citation &#123; ... &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在如果我们想在 <em>#header a</em> 中混合 <em>.button</em> 类，那么我们可以这样做：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">#header a &#123;</div><div class="line">  color: orange;</div><div class="line">  #bundle &gt; .button;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要注意的是命名空间内声明的变量将只作用于该命名空间，并且在作用域外通过相同的语法是无效的，你会用它来引用一个mixin (<em>#Namespace &gt; .mixin-name</em>)。因此，举例来说，你不能这么做： (<em>#Namespace &gt; @this-will-not-work</em>)。</p>
+<h2 id="Scope-（作用域）" class="article-heading"><a href="#Scope-（作用域）" class="headerlink" title="Scope （作用域）"></a>Scope （作用域）<a class="article-anchor" href="#Scope-（作用域）" aria-hidden="true"></a></h2><p>Less 中的作用域与编程语言中的作用域概念非常相似。首先会在局部查找变量和混合，如果没找到，编译器就会在父作用域中查找，依次类推。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">@var: red;</div><div class="line"></div><div class="line">#page &#123;</div><div class="line">  @var: white;</div><div class="line">  #header &#123;</div><div class="line">    color: @var; // white</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>变量和混合不必在使用前声明，因此下面的代码与前面的例子等价：<br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">@var: red;</div><div class="line"></div><div class="line">#page &#123;</div><div class="line">  #header &#123;</div><div class="line">    color: @var; // white</div><div class="line">  &#125;</div><div class="line">  @var: white;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>参见</p>
+<ul>
+<li><a href="http://www.css88.com/doc/less/features/#variables-feature-lazy-loading" target="_blank" rel="external">Lazy Loading(延迟加载)</a></li>
+</ul>
+<h2 id="Comments-（注释）" class="article-heading"><a href="#Comments-（注释）" class="headerlink" title="Comments （注释）"></a>Comments （注释）<a class="article-anchor" href="#Comments-（注释）" aria-hidden="true"></a></h2><p>可以使用块注释和行注释:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">/* One hell of a block</div><div class="line">style comment! */</div><div class="line">@var: red;</div><div class="line"></div><div class="line">// Get in line!</div><div class="line">@var: white;</div></pre></td></tr></table></figure>
+<h2 id="Importing-（导入）" class="article-heading"><a href="#Importing-（导入）" class="headerlink" title="Importing （导入）"></a>Importing （导入）<a class="article-anchor" href="#Importing-（导入）" aria-hidden="true"></a></h2><p>导入工作与你预期的一样。你可以导入一个 .less 文件，然后这个文件中的所有变量都可以使用了。对于 .less 文件而言，其扩展名是可选的。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">@import "library"; // library.less</div><div class="line">@import "typo.css";</div></pre></td></tr></table></figure>
+
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2017-02-20T02:31:32.000Z" itemprop="dateModified">上次更新：2017-02-20</time>
+                <time class="article-footer-updated" datetime="2017-02-21T02:31:22.000Z" itemprop="dateModified">上次更新：2017-02-21</time>
                 <a href="/docs/css/sass.html" class="article-footer-prev" title="SASS 规范"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="/docs/css/reset.html" class="article-footer-next" title="重置样式"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
               </footer>
               
@@ -65,7 +117,7 @@
           <aside id="article-toc" role="navigation">
             <div id="article-toc-inner">
               <strong class="sidebar-title">目录</strong>
-              
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Variables-（变量）"><span class="toc-text">Variables （变量）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mixins-（混合）"><span class="toc-text">Mixins （混合）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nested-rules-（嵌套规则）"><span class="toc-text">Nested rules （嵌套规则）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Media-query-bubbling-and-nested-media-queries-（媒体查询合嵌套媒体查询）"><span class="toc-text">Media query bubbling and nested media queries （媒体查询合嵌套媒体查询）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Operations-（运算）"><span class="toc-text">Operations （运算）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Functions-（函数）"><span class="toc-text">Functions （函数）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Namespaces-and-Accessors-（命名空间和访问器）"><span class="toc-text">Namespaces and Accessors （命名空间和访问器）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scope-（作用域）"><span class="toc-text">Scope （作用域）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comments-（注释）"><span class="toc-text">Comments （注释）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Importing-（导入）"><span class="toc-text">Importing （导入）</span></a></li></ol>
               <a href="#" id="article-toc-top">回到顶部</a>
             </div>
           </aside>
