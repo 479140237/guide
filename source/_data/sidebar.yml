@@ -22,7 +22,7 @@ docs:
   js:
     js_code: js/code.html
     js_compat: js/compat.html
-    js_jQuery: js/jQuery.html
+    js_jquery: js/jquery.html
     js_performance: js/performance.html
     js_resource: js/resource.html
   name:

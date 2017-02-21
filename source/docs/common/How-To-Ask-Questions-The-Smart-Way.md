@@ -13,23 +13,9 @@ Copyright © 2001,2006,2014 Eric S. Raymond, Rick Moen
 
 Copyleft 2001 by D.H.Grand(nOBODY/Ginux), 2010 by Gasolin, 2015 by Ryan Wu
 
-本中文指南是基于原文 3.10 版以及 2010 年由 [Gasolin](https://github.com/gasolin) 所翻译版本的最新翻译；
-
-协助指出翻译问题，__请[发 Issue](https://github.com/ryanhanwu/smartquestions/issues/new)，或直接[发 Pull Request](https://github.com/ryanhanwu/smartquestions/compare/) 给我。__
-
-本文另有[繁體中文版](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README.md)。
-
-## [原文版本历史](https://github.com/ryanhanwu/smartquestions/blob/master/history.md)
-
 ## 声明
 
-许多项目在他们的使用协助/说明网页中链接了本指南，这么做很好，我们也鼓励大家都这么做。但如果你是负责管理这个项目网页的人，请在超链接附近的显著位置上注明：
-
 __本指南不提供此项目的实际支持服务！__
-
-我们已经深刻领教到少了上述声明所带来的痛苦。因为少了这点声明，我们不停地被一些白痴纠缠。这些白痴认为既然我们发布了这本指南，那么我们就有责任解决世上所有的技术问题。
-
-如果你是因为需要某些协助而正在阅读这本指南，并且最后离开是因为发现从本指南作者们身上得不到直接的协助，那么你就是我们所说的那些白痴之一。别问我们问题，我们只会忽略你。我们在这本指南中是教你如何从那些真正懂得你所遇到软件或硬件问题的人取得协助，而 99% 的情况下那不会是我们。除非你确定本指南的作者之一刚好是你所遇到的问题领域的专家，否则请不要打扰我们，这样大家都会开心一点。
 
 ## 简介
 

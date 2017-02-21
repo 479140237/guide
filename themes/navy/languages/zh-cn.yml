@@ -42,7 +42,7 @@ sidebar:
     js: Javascript 规范
     js_code: 代码规范
     js_compat: 开发经验
-    js_jQuery: jQuery 代码规范
+    js_jquery: jQuery 代码规范
     js_performance: 性能优化
     js_resource: 资源
     name: 命名规范
