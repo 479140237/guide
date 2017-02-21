@@ -72,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://guide.chenzh.net/index.html</loc>
-    
-    <lastmod>2017-02-20T07:40:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://guide.chenzh.net/news/2015/03/05/hexo-3-0-released/</loc>
     
     <lastmod>2017-02-20T07:40:07.000Z</lastmod>
@@ -170,7 +163,14 @@
   </url>
   
   <url>
-    <loc>http://guide.chenzh.net/docs/image/format.html</loc>
+    <loc>http://guide.chenzh.net/index.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://guide.chenzh.net/docs/css/reset.html</loc>
     
     <lastmod>2017-02-20T02:16:16.000Z</lastmod>
     
@@ -205,7 +205,7 @@
   </url>
   
   <url>
-    <loc>http://guide.chenzh.net/docs/css/reset.html</loc>
+    <loc>http://guide.chenzh.net/docs/image/format.html</loc>
     
     <lastmod>2017-02-20T02:16:16.000Z</lastmod>
     
