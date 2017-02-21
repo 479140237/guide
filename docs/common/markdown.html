@@ -54,228 +54,452 @@
               </header>
               <div class="article-content" itemprop="articleBody">
                 <blockquote>
-<p>本手册参考自 <a href="https://gist.github.com/jonschlinkert/5854601" target="_blank" rel="external">a Gist</a>。  </p>
+<p>本手册参考自 <a href="https://github.com/riku/Markdown-Syntax-CN" target="_blank" rel="external">Markdown 语法简体中文版</a>。  </p>
 </blockquote>
-<h1 id="Typography" class="article-heading"><a href="#Typography" class="headerlink" title="Typography"></a>Typography<a class="article-anchor" href="#Typography" aria-hidden="true"></a></h1><h2 id="Headings" class="article-heading"><a href="#Headings" class="headerlink" title="Headings"></a>Headings<a class="article-anchor" href="#Headings" aria-hidden="true"></a></h2><p>Headings from <code>h1</code> through <code>h6</code> are constructed with a <code>#</code> for each level:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="section"># h1 Heading</span></div><div class="line"><span class="section">## h2 Heading</span></div><div class="line"><span class="section">### h3 Heading</span></div><div class="line"><span class="section">#### h4 Heading</span></div><div class="line"><span class="section">##### h5 Heading</span></div><div class="line"><span class="section">###### h6 Heading</span></div></pre></td></tr></table></figure>
-<p>Renders to:</p>
-<h1 id="h1-Heading" class="article-heading"><a href="#h1-Heading" class="headerlink" title="h1 Heading"></a>h1 Heading<a class="article-anchor" href="#h1-Heading" aria-hidden="true"></a></h1><h2 id="h2-Heading" class="article-heading"><a href="#h2-Heading" class="headerlink" title="h2 Heading"></a>h2 Heading<a class="article-anchor" href="#h2-Heading" aria-hidden="true"></a></h2><h3 id="h3-Heading" class="article-heading"><a href="#h3-Heading" class="headerlink" title="h3 Heading"></a>h3 Heading<a class="article-anchor" href="#h3-Heading" aria-hidden="true"></a></h3><h4 id="h4-Heading" class="article-heading"><a href="#h4-Heading" class="headerlink" title="h4 Heading"></a>h4 Heading<a class="article-anchor" href="#h4-Heading" aria-hidden="true"></a></h4><h5 id="h5-Heading" class="article-heading"><a href="#h5-Heading" class="headerlink" title="h5 Heading"></a>h5 Heading<a class="article-anchor" href="#h5-Heading" aria-hidden="true"></a></h5><h6 id="h6-Heading" class="article-heading"><a href="#h6-Heading" class="headerlink" title="h6 Heading"></a>h6 Heading<a class="article-anchor" href="#h6-Heading" aria-hidden="true"></a></h6><p>HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1 Heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>h2 Heading<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>h3 Heading<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>h4 Heading<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>h5 Heading<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>h6 Heading<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><br><br><br><br><br></p>
-<h2 id="Horizontal-Rules" class="article-heading"><a href="#Horizontal-Rules" class="headerlink" title="Horizontal Rules"></a>Horizontal Rules<a class="article-anchor" href="#Horizontal-Rules" aria-hidden="true"></a></h2><p>The HTML <code>&lt;hr&gt;</code> element is for creating a “thematic break” between paragraph-level elements. In markdown, you can create a <code>&lt;hr&gt;</code> with any of the following:</p>
+<h2 id="overview" class="article-heading">概述<a class="article-anchor" href="#overview" aria-hidden="true"></a></h2>
+
+<h3 id="philosophy" class="article-heading">宗旨<a class="article-anchor" href="#philosophy" aria-hidden="true"></a></h3>
+
+<p>Markdown 的目标是实现「易读易写」。</p>
+<p>可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 <a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a>、<a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a>、<a href="http://textism.com/tools/textile/" target="_blank" rel="external">Textile</a>、<a href="http://docutils.sourceforge.net/rst.html" target="_blank" rel="external">reStructuredText</a>、<a href="http://www.triptico.com/software/grutatxt.html" target="_blank" rel="external">Grutatext</a> 和 <a href="http://ettext.taint.org/doc/" target="_blank" rel="external">EtText</a>，而最大灵感来源其实是纯文本电子邮件的格式。</p>
+<p>总之， Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像*强调*。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。</p>
+<h3 id="html" class="article-heading">兼容 HTML<a class="article-anchor" href="#html" aria-hidden="true"></a></h3>
+
+<p>Markdown 语法的目标是：成为一种适用于网络的<em>书写</em>语言。</p>
+<p>Markdown 不是想要取代 HTML，甚至也没有要和它相近，它的语法种类很少，只对应 HTML 标记的一小部分。Markdown 的构想<em>不是</em>要使得 HTML 文档更容易书写。在我看来， HTML 已经很容易写了。Markdown 的理念是，能让文档更容易读、写和随意改。HTML 是一种<em>发布</em>的格式，Markdown 是一种<em>书写</em>的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。</p>
+<p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。</p>
+<p>要制约的只有一些 HTML 区块元素――比如 <code>&lt;div&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;pre&gt;</code>、<code>&lt;p&gt;</code> 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符或空格来缩进。Markdown 的生成器有足够智能，不会在 HTML 区块标签外加上不必要的 <code>&lt;p&gt;</code> 标签。</p>
+<p>例子如下，在 Markdown 文件里加上一段 HTML 表格：</p>
+<pre><code>这是一个普通段落。
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+这是另一个普通段落。
+</code></pre><p>请注意，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。比如，你在 HTML 区块内使用 Markdown 样式的<code>*强调*</code>会没有效果。</p>
+<p>HTML 的区段（行内）标签如 <code>&lt;span&gt;</code>、<code>&lt;cite&gt;</code>、<code>&lt;del&gt;</code> 可以在 Markdown 的段落、列表或是标题里随意使用。依照个人习惯，甚至可以不用 Markdown 格式，而直接采用 HTML 标签来格式化。举例说明：如果比较喜欢 HTML 的 <code>&lt;a&gt;</code> 或 <code>&lt;img&gt;</code> 标签，可以直接使用这些标签，而不用 Markdown 提供的链接或是图像标签语法。</p>
+<p>和处在 HTML 区块标签间不同，Markdown 语法在 HTML 区段标签间是有效的。</p>
+<h3 id="autoescape" class="article-heading">特殊字符自动转换<a class="article-anchor" href="#autoescape" aria-hidden="true"></a></h3>
+
+<p>在 HTML 文件中，有两个字符需要特殊处理： <code>&lt;</code> 和 <code>&amp;</code> 。 <code>&lt;</code> 符号用于起始标签，<code>&amp;</code> 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 <code>&amp;lt;</code> 和 <code>&amp;amp;</code>。</p>
+<p><code>&amp;</code> 字符尤其让网络文档编写者受折磨，如果你要打「<code>AT&amp;T</code>」 ，你必须要写成「<code>AT&amp;amp;T</code>」。而网址中的 <code>&amp;</code> 字符也要转换。比如你要链接到：</p>
+<pre><code>http://images.google.com/images?num=30&amp;q=larry+bird
+</code></pre><p>你必须要把网址转换写为：</p>
+<pre><code>http://images.google.com/images?num=30&amp;amp;q=larry+bird
+</code></pre><p>才能放到链接标签的 <code>href</code> 属性里。不用说也知道这很容易忽略，这也可能是 HTML 标准检验所检查到的错误中，数量最多的。</p>
+<p>Markdown 让你可以自然地书写字符，需要转换的由它来处理好了。如果你使用的 <code>&amp;</code> 字符是 HTML 字符实体的一部分，它会保留原状，否则它会被转换成 <code>&amp;amp</code>;。</p>
+<p>所以你如果要在文档中插入一个版权符号 <code>©</code>，你可以这样写：</p>
+<pre><code>&amp;copy;
+</code></pre><p>Markdown 会保留它不动。而若你写：</p>
+<pre><code>AT&amp;T
+</code></pre><p>Markdown 就会将它转为：</p>
+<pre><code>AT&amp;amp;T
+</code></pre><p>类似的状况也会发生在 <code>&lt;</code> 符号上，因为 Markdown 允许 <a href="#html">兼容 HTML</a> ，如果你是把 <code>&lt;</code> 符号作为 HTML 标签的定界符使用，那 Markdown 也不会对它做任何转换，但是如果你写：</p>
+<pre><code>4 &lt; 5
+</code></pre><p>Markdown 将会把它转换为：</p>
+<pre><code>4 &amp;lt; 5
+</code></pre><p>不过需要注意的是，code 范围内，不论是行内还是区块， <code>&lt;</code> 和 <code>&amp;</code> 两个符号都<em>一定</em>会被转换成 HTML 实体，这项特性让你可以很容易地用 Markdown 写 HTML code （和 HTML 相对而言， HTML 语法中，你要把所有的 <code>&lt;</code> 和 <code>&amp;</code> 都转换为 HTML 实体，才能在 HTML 文件里面写出 HTML code。）</p>
+<hr>
+<h2 id="block" class="article-heading">区块元素<a class="article-anchor" href="#block" aria-hidden="true"></a></h2>
+
+
+<h3 id="p" class="article-heading">段落和换行<a class="article-anchor" href="#p" aria-hidden="true"></a></h3>
+
+<p>一个 Markdown 段落是由一个或多个连续的文本行组成，它的前后要有一个以上的空行（空行的定义是显示上看起来像是空的，便会被视为空行。比方说，若某一行只包含空格和制表符，则该行也会被视为空行）。普通段落不该用空格或制表符来缩进。</p>
+<p>「由一个或多个连续的文本行组成」这句话其实暗示了 Markdown 允许段落内的强迫换行（插入换行符），这个特性和其他大部分的 text-to-HTML 格式不一样（包括 Movable Type 的「Convert Line Breaks」选项），其它的格式会把每个换行符都转成 <code>&lt;br /&gt;</code> 标签。</p>
+<p>如果你<em>确实</em>想要依赖 Markdown 来插入 <code>&lt;br /&gt;</code> 标签的话，在插入处先按入两个以上的空格然后回车。</p>
+<p>的确，需要多费点事（多加空格）来产生 <code>&lt;br /&gt;</code> ，但是简单地「每个换行都转换为 <code>&lt;br /&gt;</code>」的方法在 Markdown 中并不适合， Markdown 中 email 式的 <a href="#blockquote">区块引用</a> 和多段落的 <a href="#list">列表</a> 在使用换行来排版的时候，不但更好用，还更方便阅读。</p>
+<h3 id="header" class="article-heading">标题<a class="article-anchor" href="#header" aria-hidden="true"></a></h3>
+
+<p>Markdown 支持两种标题的语法，类 <a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a> 和类 <a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a> 形式。</p>
+<p>类 Setext 形式是用底线的形式，利用 <code>=</code> （最高阶标题）和 <code>-</code> （第二阶标题），例如：</p>
+<pre><code>This is an H1
+=============
+
+This is an H2
+-------------
+</code></pre><p>任何数量的 <code>=</code> 和 <code>-</code> 都可以有效果。</p>
+<p>类 Atx 形式则是在行首插入 1 到 6 个 <code>#</code> ，对应到标题 1 到 6 阶，例如：</p>
+<pre><code># 这是 H1
+
+## 这是 H2
+
+###### 这是 H6
+</code></pre><p>你可以选择性地「闭合」类 atx 样式的标题，这纯粹只是美观用的，若是觉得这样看起来比较舒适，你就可以在行尾加上 <code>#</code>，而行尾的 <code>#</code> 数量也不用和开头一样（行首的井字符数量决定标题的阶数）：</p>
+<pre><code># 这是 H1 #
+
+## 这是 H2 ##
+
+### 这是 H3 ######
+</code></pre><h3 id="blockquote" class="article-heading">区块引用 Blockquotes<a class="article-anchor" href="#blockquote" aria-hidden="true"></a></h3>
+
+<p>Markdown 标记区块引用是使用类似 email 中用 <code>&gt;</code> 的引用方式。如果你还熟悉在 email 信件中的引言部分，你就知道怎么在 Markdown 文件中建立一个区块引用，那会看起来像是你自己先断好行，然后在每行的最前面加上 <code>&gt;</code> ：</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&gt; 
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&gt; id sem consectetuer libero luctus adipiscing.
+</code></pre><p>Markdown 也允许你偷懒只在整个段落的第一行最前面加上 <code>&gt;</code> ：</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+</code></pre><p>区块引用可以嵌套（例如：引用内的引用），只要根据层次加上不同数量的 <code>&gt;</code> ：</p>
+<pre><code>&gt; This is the first level of quoting.
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.
+</code></pre><p>引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等：</p>
+<pre><code>&gt; ## 这是一个标题。
+&gt; 
+&gt; 1.   这是第一行列表项。
+&gt; 2.   这是第二行列表项。
+&gt; 
+&gt; 给出一些例子代码：
+&gt; 
+&gt;     return shell_exec(&quot;echo $input | $markdown_script&quot;);
+</code></pre><p>任何像样的文本编辑器都能轻松地建立 email 型的引用。例如在 BBEdit 中，你可以选取文字后然后从选单中选择<em>增加引用阶层</em>。</p>
+<h3 id="list" class="article-heading">列表<a class="article-anchor" href="#list" aria-hidden="true"></a></h3>
+
+<p>Markdown 支持有序列表和无序列表。</p>
+<p>无序列表使用星号、加号或是减号作为列表标记：</p>
+<pre><code>*   Red
+*   Green
+*   Blue
+</code></pre><p>等同于：</p>
+<pre><code>+   Red
++   Green
++   Blue
+</code></pre><p>也等同于：</p>
+<pre><code>-   Red
+-   Green
+-   Blue
+</code></pre><p>有序列表则使用数字接着一个英文句点：</p>
+<pre><code>1.  Bird
+2.  McHale
+3.  Parish
+</code></pre><p>很重要的一点是，你在列表标记上使用的数字并不会影响输出的 HTML 结果，上面的列表所产生的 HTML 标记为：</p>
+<pre><code>&lt;ol&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre><p>如果你的列表标记写成：</p>
+<pre><code>1.  Bird
+1.  McHale
+1.  Parish
+</code></pre><p>或甚至是：</p>
+<pre><code>3. Bird
+1. McHale
+8. Parish
+</code></pre><p>你都会得到完全相同的 HTML 输出。重点在于，你可以让 Markdown 文件的列表数字和输出的结果相同，或是你懒一点，你可以完全不用在意数字的正确性。</p>
+<p>如果你使用懒惰的写法，建议第一个项目最好还是从 1. 开始，因为 Markdown 未来可能会支持有序列表的 start 属性。</p>
+<p>列表项目标记通常是放在最左边，但是其实也可以缩进，最多 3 个空格，项目标记后面则一定要接着至少一个空格或制表符。</p>
+<p>要让列表看起来更漂亮，你可以把内容用固定的缩进整理好：</p>
+<pre><code>*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre><p>但是如果你懒，那也行：</p>
+<pre><code>*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre><p>如果列表项目间用空行分开，在输出 HTML 时 Markdown 就会将项目内容用 <code>&lt;p&gt;</code><br>标签包起来，举例来说：</p>
+<pre><code>*   Bird
+*   Magic
+</code></pre><p>会被转换为：</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;Magic&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>但是这个：</p>
+<pre><code>*   Bird
+
+*   Magic
+</code></pre><p>会被转换为：</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Bird&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Magic&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符：</p>
+<pre><code>1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre><p>如果你每行都有缩进，看起来会看好很多，当然，再次地，如果你很懒惰，Markdown 也允许：</p>
+<pre><code>*   This is a list item with two paragraphs.
+
+    This is the second paragraph in the list item. You&apos;re
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.
+
+*   Another item in the same list.
+</code></pre><p>如果要在列表项目内放进引用，那 <code>&gt;</code> 就需要缩进：</p>
+<pre><code>*   A list item with a blockquote:
+
+    &gt; This is a blockquote
+    &gt; inside a list item.
+</code></pre><p>如果要放代码区块的话，该区块就需要缩进<em>两次</em>，也就是 8 个空格或是 2 个制表符：</p>
+<pre><code>*   一列表项包含一个列表区块：
+
+        &lt;代码写在这&gt;
+</code></pre><p>当然，项目列表很可能会不小心产生，像是下面这样的写法：</p>
+<pre><code>1986. What a great season.
+</code></pre><p>换句话说，也就是在行首出现<em>数字-句点-空白</em>，要避免这样的状况，你可以在句点前面加上反斜杠。</p>
+<pre><code>1986\. What a great season.
+</code></pre><h3 id="precode" class="article-heading">代码区块<a class="article-anchor" href="#precode" aria-hidden="true"></a></h3>
+
+<p>和程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些区块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，Markdown 会用 <code>&lt;pre&gt;</code> 和 <code>&lt;code&gt;</code> 标签来把代码区块包起来。</p>
+<p>要在 Markdown 中建立代码区块很简单，只要简单地缩进 4 个空格或是 1 个制表符就可以，例如，下面的输入：</p>
+<pre><code>这是一个普通段落：
+
+    这是一个代码区块。
+</code></pre><p>Markdown 会转换成：</p>
+<pre><code>&lt;p&gt;这是一个普通段落：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;这是一个代码区块。
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><p>这个每行一阶的缩进（4 个空格或是 1 个制表符），都会被移除，例如：</p>
+<pre><code>Here is an example of AppleScript:
+
+    tell application &quot;Foo&quot;
+        beep
+    end tell
+</code></pre><p>会被转换为：</p>
+<pre><code>&lt;p&gt;Here is an example of AppleScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tell application &quot;Foo&quot;
+    beep
+end tell
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><p>一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。</p>
+<p>在代码区块里面， <code>&amp;</code> 、 <code>&lt;</code> 和 <code>&gt;</code> 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，再加上缩进就可以了，剩下的 Markdown 都会帮你处理，例如：</p>
+<pre><code>&lt;div class=&quot;footer&quot;&gt;
+    &amp;copy; 2004 Foo Corporation
+&lt;/div&gt;
+</code></pre><p>会被转换为：</p>
+<pre><code>&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;footer&quot;&amp;gt;
+    &amp;amp;copy; 2004 Foo Corporation
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><p>代码区块中，一般的 Markdown 语法不会被转换，像是星号便只是星号，这表示你可以很容易地以 Markdown 语法撰写 Markdown 语法相关的文件。</p>
+<h3 id="hr" class="article-heading">分隔线<a class="article-anchor" href="#hr" aria-hidden="true"></a></h3>
+
+<p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<pre><code>* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
+</code></pre><hr>
+<h2 id="span" class="article-heading">区段元素<a class="article-anchor" href="#span" aria-hidden="true"></a></h2>
+
+<h3 id="link" class="article-heading">链接<a class="article-anchor" href="#link" aria-hidden="true"></a></h3>
+
+<p>Markdown 支持两种形式的链接语法： <em>行内式</em>和<em>参考式</em>两种形式。</p>
+<p>不管是哪一种，链接文字都是用 [方括号] 来标记。</p>
+<p>要建立一个<em>行内式</em>的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可，例如：</p>
+<pre><code>This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+
+[This link](http://example.net/) has no title attribute.
+</code></pre><p>会产生：</p>
+<pre><code>&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;
+an example&lt;/a&gt; inline link.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no
+title attribute.&lt;/p&gt;
+</code></pre><p>如果你是要链接到同样主机的资源，你可以使用相对路径：</p>
+<pre><code>See my [About](/about/) page for details.   
+</code></pre><p><em>参考式</em>的链接是在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：</p>
+<pre><code>This is [an example][id] reference-style link.
+</code></pre><p>你也可以选择性地在两个方括号中间加上一个空格：</p>
+<pre><code>This is [an example] [id] reference-style link.
+</code></pre><p>接着，在文件的任意处，你可以把这个标记的链接内容定义出来：</p>
+<pre><code>[id]: http://example.com/  &quot;Optional Title Here&quot;
+</code></pre><p>链接内容定义的形式为：</p>
 <ul>
-<li><code>___</code>: three consecutive underscores</li>
-<li><code>---</code>: three consecutive dashes</li>
-<li><code>***</code>: three consecutive asterisks</li>
+<li>方括号（前面可以选择性地加上至多三个空格来缩进），里面输入链接文字</li>
+<li>接着一个冒号</li>
+<li>接着一个以上的空格或制表符</li>
+<li>接着链接的网址</li>
+<li>选择性地接着 title 内容，可以用单引号、双引号或是括弧包着</li>
 </ul>
-<p>renders to:</p>
-<hr>
-<hr>
-<hr>
-<p><br><br><br><br><br></p>
-<h2 id="Body-Copy" class="article-heading"><a href="#Body-Copy" class="headerlink" title="Body Copy"></a>Body Copy<a class="article-anchor" href="#Body-Copy" aria-hidden="true"></a></h2><p>Body copy written as normal, plain text will be wrapped with <code>&lt;p&gt;&lt;/p&gt;</code> tags in the rendered HTML.</p>
-<p>So this body copy:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque ei qui, vide sensibus vim ad.</div></pre></td></tr></table></figure>
-<p>renders to this HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus. Et legere ocurreret pri, animal tacimates complectitur ad cum. Cu eum inermis inimicus efficiendi. Labore officiis his ex, soluta officiis concludaturque ei qui, vide sensibus vim ad.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><br><br><br><br><br></p>
-<h2 id="Emphasis" class="article-heading"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis<a class="article-anchor" href="#Emphasis" aria-hidden="true"></a></h2><h3 id="Bold" class="article-heading"><a href="#Bold" class="headerlink" title="Bold"></a>Bold<a class="article-anchor" href="#Bold" aria-hidden="true"></a></h3><p>For emphasizing a snippet of text with a heavier font-weight.</p>
-<p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="strong">**rendered as bold text**</span></div></pre></td></tr></table></figure>
-<p>renders to:</p>
-<p><strong>rendered as bold text</strong></p>
-<p>and this HTML</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">strong</span>&gt;</span>rendered as bold text<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Italics" class="article-heading"><a href="#Italics" class="headerlink" title="Italics"></a>Italics<a class="article-anchor" href="#Italics" aria-hidden="true"></a></h3><p>For emphasizing a snippet of text with italics.</p>
-<p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="emphasis">_rendered as italicized text_</span></div></pre></td></tr></table></figure>
-<p>renders to:</p>
-<p><em>rendered as italicized text</em></p>
-<p>and this HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>rendered as italicized text<span class="tag">&lt;/<span class="name">em</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="strikethrough" class="article-heading"><a href="#strikethrough" class="headerlink" title="strikethrough"></a>strikethrough<a class="article-anchor" href="#strikethrough" aria-hidden="true"></a></h3><p>In GFM you can do strickthroughs. </p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">~~Strike through this text.~~</div></pre></td></tr></table></figure>
-<p>Which renders to:</p>
-<p><del>Strike through this text.</del></p>
-<p><br><br><br><br><br></p>
-<h2 id="Blockquotes" class="article-heading"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes<a class="article-anchor" href="#Blockquotes" aria-hidden="true"></a></h2><p>For quoting blocks of content from another source within your document.</p>
-<p>Add <code>&gt;</code> before any text you want to quote. </p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">Add <span class="code">`&gt;`</span> before any text you want to quote.</div></pre></td></tr></table></figure>
-<p>Renders to:</p>
-<blockquote>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-</blockquote>
-<p>and this HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">blockquote</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Blockquotes can also be nested:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="quote">&gt; Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. </span></div><div class="line">Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. </div><div class="line">&gt;&gt; Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor </div><div class="line">odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.</div><div class="line">&gt;&gt;&gt; Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. </div><div class="line">Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi.</div></pre></td></tr></table></figure>
-<p>Renders to:</p>
-<blockquote>
-<p>Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.<br>Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. </p>
-<blockquote>
-<p>Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor<br>odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.</p>
-<blockquote>
-<p>Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue.<br>Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. </p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><br><br><br><br><br></p>
-<h2 id="Lists" class="article-heading"><a href="#Lists" class="headerlink" title="Lists"></a>Lists<a class="article-anchor" href="#Lists" aria-hidden="true"></a></h2><h3 id="Unordered" class="article-heading"><a href="#Unordered" class="headerlink" title="Unordered"></a>Unordered<a class="article-anchor" href="#Unordered" aria-hidden="true"></a></h3><p>A list of items in which the order of the items does not explicitly matter.</p>
-<p>You may use any of the following symbols to denote bullets for each list item:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="bullet">* </span>valid bullet</div><div class="line"><span class="bullet">- </span>valid bullet</div><div class="line"><span class="bullet">+ </span>valid bullet</div></pre></td></tr></table></figure>
-<p>For example</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="bullet">+ </span>Lorem ipsum dolor sit amet</div><div class="line"><span class="bullet">+ </span>Consectetur adipiscing elit</div><div class="line"><span class="bullet">+ </span>Integer molestie lorem at massa</div><div class="line"><span class="bullet">+ </span>Facilisis in pretium nisl aliquet</div><div class="line"><span class="bullet">+ </span>Nulla volutpat aliquam velit</div><div class="line">  - Phasellus iaculis neque</div><div class="line">  - Purus sodales ultricies</div><div class="line">  - Vestibulum laoreet porttitor sem</div><div class="line">  - Ac tristique libero volutpat at</div><div class="line"><span class="bullet">+ </span>Faucibus porta lacus fringilla vel</div><div class="line"><span class="bullet">+ </span>Aenean sit amet erat nunc</div><div class="line"><span class="bullet">+ </span>Eget porttitor lorem</div></pre></td></tr></table></figure>
-<p>Renders to:</p>
+<p>下面这三种链接的定义都是相同：</p>
+<pre><code>[foo]: http://example.com/  &quot;Optional Title Here&quot;
+[foo]: http://example.com/  &apos;Optional Title Here&apos;
+[foo]: http://example.com/  (Optional Title Here)
+</code></pre><p><strong>请注意：</strong>有一个已知的问题是 Markdown.pl 1.0.1 会忽略单引号包起来的链接 title。</p>
+<p>链接网址也可以用尖括号包起来：</p>
+<pre><code>[id]: &lt;http://example.com/&gt;  &quot;Optional Title Here&quot;
+</code></pre><p>你也可以把 title 属性放到下一行，也可以加一些缩进，若网址太长的话，这样会比较好看：</p>
+<pre><code>[id]: http://example.com/longish/path/to/resource/here
+    &quot;Optional Title Here&quot;
+</code></pre><p>网址定义只有在产生链接的时候用到，并不会直接出现在文件之中。</p>
+<p>链接辨别标签可以有字母、数字、空白和标点符号，但是并<em>不</em>区分大小写，因此下面两个链接是一样的：</p>
+<pre><code>[link text][a]
+[link text][A]
+</code></pre><p><em>隐式链接标记</em>功能让你可以省略指定链接标记，这种情形下，链接标记会视为等同于链接文字，要用隐式链接标记只要在链接文字后面加上一个空的方括号，如果你要让 “Google” 链接到 google.com，你可以简化成：</p>
+<pre><code>[Google][]
+</code></pre><p>然后定义链接内容：</p>
+<pre><code>[Google]: http://google.com/
+</code></pre><p>由于链接文字可能包含空白，所以这种简化型的标记内也许包含多个单词：</p>
+<pre><code>Visit [Daring Fireball][] for more information.
+</code></pre><p>然后接着定义链接：</p>
+<pre><code>[Daring Fireball]: http://daringfireball.net/
+</code></pre><p>链接的定义可以放在文件中的任何一个地方，我比较偏好直接放在链接出现段落的后面，你也可以把它放在文件最后面，就像是注解一样。</p>
+<p>下面是一个参考式链接的范例：</p>
+<pre><code>I get 10 times more traffic from [Google] [1] than from
+[Yahoo] [2] or [MSN] [3].
+
+  [1]: http://google.com/        &quot;Google&quot;
+  [2]: http://search.yahoo.com/  &quot;Yahoo Search&quot;
+  [3]: http://search.msn.com/    &quot;MSN Search&quot;
+</code></pre><p>如果改成用链接名称的方式写：</p>
+<pre><code>I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+  [google]: http://google.com/        &quot;Google&quot;
+  [yahoo]:  http://search.yahoo.com/  &quot;Yahoo Search&quot;
+  [msn]:    http://search.msn.com/    &quot;MSN Search&quot;
+</code></pre><p>上面两种写法都会产生下面的 HTML。</p>
+<pre><code>&lt;p&gt;I get 10 times more traffic from &lt;a href=&quot;http://google.com/&quot;
+title=&quot;Google&quot;&gt;Google&lt;/a&gt; than from
+&lt;a href=&quot;http://search.yahoo.com/&quot; title=&quot;Yahoo Search&quot;&gt;Yahoo&lt;/a&gt;
+or &lt;a href=&quot;http://search.msn.com/&quot; title=&quot;MSN Search&quot;&gt;MSN&lt;/a&gt;.&lt;/p&gt;
+</code></pre><p>下面是用行内式写的同样一段内容的 Markdown 文件，提供作为比较之用：</p>
+<pre><code>I get 10 times more traffic from [Google](http://google.com/ &quot;Google&quot;)
+than from [Yahoo](http://search.yahoo.com/ &quot;Yahoo Search&quot;) or
+[MSN](http://search.msn.com/ &quot;MSN Search&quot;).
+</code></pre><p>参考式的链接其实重点不在于它比较好写，而是它比较好读，比较一下上面的范例，使用参考式的文章本身只有 81 个字符，但是用行内形式的却会增加到 176 个字元，如果是用纯 HTML 格式来写，会有 234 个字元，在 HTML 格式中，标签比文本还要多。</p>
+<p>使用 Markdown 的参考式链接，可以让文件更像是浏览器最后产生的结果，让你可以把一些标记相关的元数据移到段落文字之外，你就可以增加链接而不让文章的阅读感觉被打断。</p>
+<h3 id="em" class="article-heading">强调<a class="article-anchor" href="#em" aria-hidden="true"></a></h3>
+
+<p>Markdown 使用星号（<code>*</code>）和底线（<code>_</code>）作为标记强调字词的符号，被 <code>*</code> 或 <code>_</code> 包围的字词会被转成用 <code>&lt;em&gt;</code> 标签包围，用两个 <code>*</code> 或 <code>_</code> 包起来的话，则会被转成 <code>&lt;strong&gt;</code>，例如：</p>
+<pre><code>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+</code></pre><p>会转成：</p>
+<pre><code>&lt;em&gt;single asterisks&lt;/em&gt;
+
+&lt;em&gt;single underscores&lt;/em&gt;
+
+&lt;strong&gt;double asterisks&lt;/strong&gt;
+
+&lt;strong&gt;double underscores&lt;/strong&gt;
+</code></pre><p>你可以随便用你喜欢的样式，唯一的限制是，你用什么符号开启标签，就要用什么符号结束。</p>
+<p>强调也可以直接插在文字中间：</p>
+<pre><code>un*frigging*believable
+</code></pre><p>但是<strong>如果你的 <code>*</code> 和 <code>_</code> 两边都有空白的话，它们就只会被当成普通的符号</strong>。</p>
+<p>如果要在文字前后直接插入普通的星号或底线，你可以用反斜线：</p>
+<pre><code>\*this text is surrounded by literal asterisks\*
+</code></pre><h3 id="code" class="article-heading">代码<a class="article-anchor" href="#code" aria-hidden="true"></a></h3>
+
+<p>如果要标记一小段行内代码，你可以用反引号把它包起来（<code>` </code>），例如：</p>
+<pre><code>Use the `printf()` function.
+</code></pre><p>会产生：</p>
+<pre><code>&lt;p&gt;Use the &lt;code&gt;printf()&lt;/code&gt; function.&lt;/p&gt;
+</code></pre><p>如果要在代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段：</p>
+<pre><code>``There is a literal backtick (`) here.``
+</code></pre><p>这段语法会产生：</p>
+<pre><code>&lt;p&gt;&lt;code&gt;There is a literal backtick (`) here.&lt;/code&gt;&lt;/p&gt;
+</code></pre><p>代码区段的起始和结束端都可以放入一个空白，起始端后面一个，结束端前面一个，这样你就可以在区段的一开始就插入反引号：</p>
+<pre><code>A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+</code></pre><p>会产生：</p>
+<pre><code>&lt;p&gt;A single backtick in a code span: &lt;code&gt;`&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;A backtick-delimited string in a code span: &lt;code&gt;`foo`&lt;/code&gt;&lt;/p&gt;
+</code></pre><p>在代码区段内，<code>&amp;</code> 和尖括号<strong>都</strong>会被自动地转成 HTML 实体，这使得插入 HTML 原始码变得很容易，Markdown 会把下面这段：</p>
+<pre><code>Please don&apos;t use any `&lt;blink&gt;` tags.
+</code></pre><p>转为：</p>
+<pre><code>&lt;p&gt;Please don&apos;t use any &lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;
+</code></pre><p>你也可以这样写：</p>
+<pre><code>`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.
+</code></pre><p>以产生：</p>
+<pre><code>&lt;p&gt;&lt;code&gt;&amp;amp;#8212;&lt;/code&gt; is the decimal-encoded
+equivalent of &lt;code&gt;&amp;amp;mdash;&lt;/code&gt;.&lt;/p&gt;
+</code></pre><h3 id="img" class="article-heading">图片<a class="article-anchor" href="#img" aria-hidden="true"></a></h3>
+
+<p>很明显地，要在纯文字应用中设计一个「自然」的语法来插入图片是有一定难度的。</p>
+<p>Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： <em>行内式</em>和<em>参考式</em>。</p>
+<p>行内式的图片语法看起来像是：</p>
+<pre><code>![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg &quot;Optional title&quot;)
+</code></pre><p>详细叙述如下：</p>
 <ul>
-<li>Lorem ipsum dolor sit amet</li>
-<li>Consectetur adipiscing elit</li>
-<li>Integer molestie lorem at massa</li>
-<li>Facilisis in pretium nisl aliquet</li>
-<li>Nulla volutpat aliquam velit<ul>
-<li>Phasellus iaculis neque</li>
-<li>Purus sodales ultricies</li>
-<li>Vestibulum laoreet porttitor sem</li>
-<li>Ac tristique libero volutpat at</li>
+<li>一个惊叹号 <code>!</code></li>
+<li>接着一个方括号，里面放上图片的替代文字</li>
+<li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上<br>选择性的 ‘title’ 文字。</li>
 </ul>
-</li>
-<li>Faucibus porta lacus fringilla vel</li>
-<li>Aenean sit amet erat nunc</li>
-<li>Eget porttitor lorem</li>
-</ul>
-<p>And this HTML</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Lorem ipsum dolor sit amet<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Consectetur adipiscing elit<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Integer molestie lorem at massa<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Facilisis in pretium nisl aliquet<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Nulla volutpat aliquam velit</div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Phasellus iaculis neque<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Purus sodales ultricies<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Vestibulum laoreet porttitor sem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Ac tristique libero volutpat at<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Faucibus porta lacus fringilla vel<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Aenean sit amet erat nunc<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Eget porttitor lorem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Ordered" class="article-heading"><a href="#Ordered" class="headerlink" title="Ordered"></a>Ordered<a class="article-anchor" href="#Ordered" aria-hidden="true"></a></h3><p>A list of items in which the order of items does explicitly matter.</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="bullet">1. </span>Lorem ipsum dolor sit amet</div><div class="line"><span class="bullet">2. </span>Consectetur adipiscing elit</div><div class="line"><span class="bullet">3. </span>Integer molestie lorem at massa</div><div class="line"><span class="bullet">4. </span>Facilisis in pretium nisl aliquet</div><div class="line"><span class="bullet">5. </span>Nulla volutpat aliquam velit</div><div class="line"><span class="bullet">6. </span>Faucibus porta lacus fringilla vel</div><div class="line"><span class="bullet">7. </span>Aenean sit amet erat nunc</div><div class="line"><span class="bullet">8. </span>Eget porttitor lorem</div></pre></td></tr></table></figure>
-<p>Renders to:</p>
-<ol>
-<li>Lorem ipsum dolor sit amet</li>
-<li>Consectetur adipiscing elit</li>
-<li>Integer molestie lorem at massa</li>
-<li>Facilisis in pretium nisl aliquet</li>
-<li>Nulla volutpat aliquam velit</li>
-<li>Faucibus porta lacus fringilla vel</li>
-<li>Aenean sit amet erat nunc</li>
-<li>Eget porttitor lorem</li>
-</ol>
-<p>And this HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Lorem ipsum dolor sit amet<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Consectetur adipiscing elit<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Integer molestie lorem at massa<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Facilisis in pretium nisl aliquet<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Nulla volutpat aliquam velit<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Faucibus porta lacus fringilla vel<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Aenean sit amet erat nunc<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>Eget porttitor lorem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong>TIP</strong>: If you just use <code>1.</code> for each number, GitHub will automatically number each item. For example:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="bullet">1. </span>Lorem ipsum dolor sit amet</div><div class="line"><span class="bullet">1. </span>Consectetur adipiscing elit</div><div class="line"><span class="bullet">1. </span>Integer molestie lorem at massa</div><div class="line"><span class="bullet">1. </span>Facilisis in pretium nisl aliquet</div><div class="line"><span class="bullet">1. </span>Nulla volutpat aliquam velit</div><div class="line"><span class="bullet">1. </span>Faucibus porta lacus fringilla vel</div><div class="line"><span class="bullet">1. </span>Aenean sit amet erat nunc</div><div class="line"><span class="bullet">1. </span>Eget porttitor lorem</div></pre></td></tr></table></figure>
-<p>Renders to:</p>
-<ol>
-<li>Lorem ipsum dolor sit amet</li>
-<li>Consectetur adipiscing elit</li>
-<li>Integer molestie lorem at massa</li>
-<li>Facilisis in pretium nisl aliquet</li>
-<li>Nulla volutpat aliquam velit</li>
-<li>Faucibus porta lacus fringilla vel</li>
-<li>Aenean sit amet erat nunc</li>
-<li>Eget porttitor lorem</li>
-</ol>
-<p><br><br><br><br><br></p>
-<h2 id="Code" class="article-heading"><a href="#Code" class="headerlink" title="Code"></a>Code<a class="article-anchor" href="#Code" aria-hidden="true"></a></h2><h3 id="Inline-code" class="article-heading"><a href="#Inline-code" class="headerlink" title="Inline code"></a>Inline code<a class="article-anchor" href="#Inline-code" aria-hidden="true"></a></h3><p>Wrap inline snippets of code with <code>` </code>.</p>
-<p>For example, <code>&lt;section&gt;&lt;/section&gt;</code> should be wrapped as “inline”.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">For example, `<span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span>` should be wrapped as "inline".</div></pre></td></tr></table></figure>
-<h3 id="Indented-code" class="article-heading"><a href="#Indented-code" class="headerlink" title="Indented code"></a>Indented code<a class="article-anchor" href="#Indented-code" aria-hidden="true"></a></h3><p>Or indent several lines of code by at least four spaces, as in:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Some comments</span></div><div class="line">line <span class="number">1</span> <span class="keyword">of</span> code</div><div class="line">line <span class="number">2</span> <span class="keyword">of</span> code</div><div class="line">line <span class="number">3</span> <span class="keyword">of</span> code</div></pre></td></tr></table></figure>
-<pre><code>// Some comments
-line 1 of code
-line 2 of code
-line 3 of code
-</code></pre><h3 id="Block-code-“fences”" class="article-heading"><a href="#Block-code-“fences”" class="headerlink" title="Block code “fences”"></a>Block code “fences”<a class="article-anchor" href="#Block-code-“fences”" aria-hidden="true"></a></h3><p>Use “fences”  <figure class="highlight plain"><figcaption><span>``` ```` to block in multiple lines of code. </span></figcaption><table><tr><td class="code"><pre><div class="line"></div><div class="line">&lt;pre&gt;</div><div class="line">``` html</div><div class="line">Sample text here...</div></pre></td></tr></table></figure></p>
-<p></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Sample text here...</div></pre></td></tr></table></figure>
-<p>HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Sample text here...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Syntax-highlighting" class="article-heading"><a href="#Syntax-highlighting" class="headerlink" title="Syntax highlighting"></a>Syntax highlighting<a class="article-anchor" href="#Syntax-highlighting" aria-hidden="true"></a></h3><p>GFM, or “GitHub Flavored Markdown” also supports syntax highlighting. To activate it, simply add the file extension of the language you want to use directly after the first code “fence”, ` <figure class="highlight js"><figcaption><span>`, and syntax highlighting will automatically be applied in the rendered HTML. For example, to apply syntax highlighting to JavaScript code:</span></figcaption><table><tr><td class="code"><pre><div class="line"></div><div class="line">&lt;pre&gt;</div><div class="line"><span class="string">``</span><span class="string">` javascript</span></div><div class="line">grunt.initConfig(&#123;</div><div class="line">  assemble: &#123;</div><div class="line">    options: &#123;</div><div class="line">      assets: 'docs/assets',</div><div class="line">      data: 'src/data/*.&#123;json,yml&#125;',</div><div class="line">      helpers: 'src/custom-helpers.js',</div><div class="line">      partials: ['src/partials/**/*.&#123;hbs,md&#125;']</div><div class="line">    &#125;,</div><div class="line">    pages: &#123;</div><div class="line">      options: &#123;</div><div class="line">        layout: 'default.hbs'</div><div class="line">      &#125;,</div><div class="line">      files: &#123;</div><div class="line">        './': ['src/templates/pages/index.hbs']</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p></p>
-<p>Renders to:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">grunt.initConfig(&#123;</div><div class="line">  <span class="attr">assemble</span>: &#123;</div><div class="line">    <span class="attr">options</span>: &#123;</div><div class="line">      <span class="attr">assets</span>: <span class="string">'docs/assets'</span>,</div><div class="line">      <span class="attr">data</span>: <span class="string">'src/data/*.&#123;json,yml&#125;'</span>,</div><div class="line">      <span class="attr">helpers</span>: <span class="string">'src/custom-helpers.js'</span>,</div><div class="line">      <span class="attr">partials</span>: [<span class="string">'src/partials/**/*.&#123;hbs,md&#125;'</span>]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">pages</span>: &#123;</div><div class="line">      <span class="attr">options</span>: &#123;</div><div class="line">        <span class="attr">layout</span>: <span class="string">'default.hbs'</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">files</span>: &#123;</div><div class="line">        <span class="string">'./'</span>: [<span class="string">'src/templates/pages/index.hbs'</span>]</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>And this complicated HTML:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"highlight"</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>grunt<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>.<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>initConfig<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>(&#123;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>assemble<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#123;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>options<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#123;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>assets<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>'docs/assets'<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>data<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>'src/data/*.&#123;json,yml&#125;'<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>helpers<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>'src/custom-helpers.js'<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>,<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>partials<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>[<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>'src/partials/**/*.&#123;hbs,md&#125;'<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>]<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#125;,<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>pages<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#123;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>options<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#123;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>layout<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>'default.hbs'<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#125;,<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nx"</span>&gt;</span>files<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#123;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>'./'<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"o"</span>&gt;</span>:<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>[<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"s1"</span>&gt;</span>'src/templates/pages/index.hbs'<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>]<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"p"</span>&gt;</span>&#125;;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><br><br><br><br><br></p>
-<h2 id="Tables" class="article-heading"><a href="#Tables" class="headerlink" title="Tables"></a>Tables<a class="article-anchor" href="#Tables" aria-hidden="true"></a></h2><p>Tables are created by adding pipes as dividers between each cell, and by adding a line of dashes (also separated by bars) beneath the header. Note that the pipes do not need to be vertically aligned.</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">| Option | Description |</div><div class="line">| ------ | ----------- |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
-<p>Renders to:</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>data</td>
-<td>path to data files to supply the data that will be passed into templates.</td>
-</tr>
-<tr>
-<td>engine</td>
-<td>engine to be used for processing templates. Handlebars is the default.</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>extension to be used for dest files.</td>
-</tr>
-</tbody>
-</table>
-<p>And this HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>Option<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">th</span>&gt;</span>Description<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>data<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>path to data files to supply the data that will be passed into templates.<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>engine<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>engine to be used for processing templates. Handlebars is the default.<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>ext<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>extension to be used for dest files.<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Right-aligned-text" class="article-heading"><a href="#Right-aligned-text" class="headerlink" title="Right aligned text"></a>Right aligned text<a class="article-anchor" href="#Right-aligned-text" aria-hidden="true"></a></h3><p>Adding a colon on the right side of the dashes below any heading will right align text for that column.</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">| Option | Description |</div><div class="line">| ------:| -----------:|</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Option</th>
-<th style="text-align:right">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">data</td>
-<td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
-</tr>
-<tr>
-<td style="text-align:right">engine</td>
-<td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
-</tr>
-<tr>
-<td style="text-align:right">ext</td>
-<td style="text-align:right">extension to be used for dest files.</td>
-</tr>
-</tbody>
-</table>
-<p><br><br><br><br><br></p>
-<h2 id="Links" class="article-heading"><a href="#Links" class="headerlink" title="Links"></a>Links<a class="article-anchor" href="#Links" aria-hidden="true"></a></h2><h3 id="Basic-link" class="article-heading"><a href="#Basic-link" class="headerlink" title="Basic link"></a>Basic link<a class="article-anchor" href="#Basic-link" aria-hidden="true"></a></h3><figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">[<span class="string">Assemble</span>](<span class="link">http://assemble.io</span>)</div></pre></td></tr></table></figure>
-<p>Renders to (hover over the link, there is no tooltip):</p>
-<p><a href="http://assemble.io" target="_blank" rel="external">Assemble</a></p>
-<p>HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://assemble.io"</span>&gt;</span>Assemble<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Add-a-title" class="article-heading"><a href="#Add-a-title" class="headerlink" title="Add a title"></a>Add a title<a class="article-anchor" href="#Add-a-title" aria-hidden="true"></a></h3><figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">[<span class="string">Upstage</span>](<span class="link">https://github.com/upstage/ "Visit Upstage!"</span>)</div></pre></td></tr></table></figure>
-<p>Renders to (hover over the link, there should be a tooltip):</p>
-<p><a href="https://github.com/upstage/" title="Visit Upstage!" target="_blank" rel="external">Upstage</a></p>
-<p>HTML:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://github.com/upstage/"</span> <span class="attr">title</span>=<span class="string">"Visit Upstage!"</span>&gt;</span>Upstage<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Named-Anchors" class="article-heading"><a href="#Named-Anchors" class="headerlink" title="Named Anchors"></a>Named Anchors<a class="article-anchor" href="#Named-Anchors" aria-hidden="true"></a></h3><p>Named anchors enable you to jump to the specified anchor point on the same page. For example, each of these chapters:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="section"># Table of Contents</span></div><div class="line">  * [<span class="string">Chapter 1</span>](<span class="link">#chapter-1</span>)</div><div class="line">  * [<span class="string">Chapter 2</span>](<span class="link">#chapter-2</span>)</div><div class="line">  * [<span class="string">Chapter 3</span>](<span class="link">#chapter-3</span>)</div></pre></td></tr></table></figure>
-<p>will jump to these sections:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line"><span class="section">## Chapter 1 &lt;a id="chapter-1"&gt;&lt;/a&gt;</span></div><div class="line">Content for chapter one.</div><div class="line"></div><div class="line"><span class="section">## Chapter 2 &lt;a id="chapter-2"&gt;&lt;/a&gt;</span></div><div class="line">Content for chapter one.</div><div class="line"></div><div class="line"><span class="section">## Chapter 3 &lt;a id="chapter-3"&gt;&lt;/a&gt;</span></div><div class="line">Content for chapter one.</div></pre></td></tr></table></figure>
-<p><strong>NOTE</strong> that specific placement of the anchor tag seems to be arbitrary. They are placed inline here since it seems to be unobtrusive, and it works.</p>
-<p><br><br><br><br><br></p>
-<h2 id="Images" class="article-heading"><a href="#Images" class="headerlink" title="Images"></a>Images<a class="article-anchor" href="#Images" aria-hidden="true"></a></h2><p>Images have a similar syntax to links but include a preceding exclamation point.</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">![<span class="string">Minion</span>](<span class="link">http://octodex.github.com/images/minion.png</span>)</div></pre></td></tr></table></figure>
-<p><img src="http://octodex.github.com/images/minion.png" alt="Minion"></p>
-<p>or<br><figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">![<span class="string">Alt text</span>](<span class="link">http://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat"</span>)</div></pre></td></tr></table></figure></p>
-<p><img src="http://octodex.github.com/images/stormtroopocat.jpg" alt="Alt text" title="The Stormtroopocat"></p>
-<p>Like links, Images also have a footnote style syntax</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">![<span class="string">Alt text</span>][<span class="symbol">id</span>]</div></pre></td></tr></table></figure>
-<p><img src="http://octodex.github.com/images/dojocat.jpg" alt="Alt text" title="The Dojocat"></p>
-<p>With a reference later in the document defining the URL location:</p>
-<pre><code>[id]: http://octodex.github.com/images/dojocat.jpg  &quot;The Dojocat&quot;
+<p>参考式的图片语法则长得像这样：</p>
+<pre><code>![Alt text][id]
+</code></pre><p>「id」是图片参考的名称，图片参考的定义方式则和连结参考一样：</p>
+<pre><code>[id]: url/to/image  &quot;Optional title attribute&quot;
+</code></pre><p>到目前为止， Markdown 还没有办法指定图片的宽高，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。</p>
+<hr>
+<h2 id="misc" class="article-heading">其它<a class="article-anchor" href="#misc" aria-hidden="true"></a></h2>
+
+<h3 id="autolink" class="article-heading">自动链接<a class="article-anchor" href="#autolink" aria-hidden="true"></a></h3>
+
+<p>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用尖括号包起来， Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：</p>
+<pre><code>&lt;http://example.com/&gt;
+</code></pre><p>Markdown 会转为：</p>
+<pre><code>&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;
+</code></pre><p>邮址的自动链接也很类似，只是 Markdown 会先做一个编码转换的过程，把文字字符转成 16 进位码的 HTML 实体，这样的格式可以糊弄一些不好的邮址收集机器人，例如：</p>
+<pre><code>&lt;address@example.com&gt;
+</code></pre><p>Markdown 会转成：</p>
+<pre><code>&lt;a href=&quot;&amp;#x6D;&amp;#x61;i&amp;#x6C;&amp;#x74;&amp;#x6F;:&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;
+&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;
+&amp;#109;&quot;&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;
+&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;
+</code></pre><p>在浏览器里面，这段字串（其实是 <code>&lt;a href=&quot;mailto:address@example.com&quot;&gt;address@example.com&lt;/a&gt;</code>）会变成一个可以点击的「address@example.com」链接。</p>
+<p>（这种作法虽然可以糊弄不少的机器人，但并不能全部挡下来，不过总比什么都不做好些。不管怎样，公开你的信箱终究会引来广告信件的。）</p>
+<h3 id="backslash" class="article-heading">反斜杠<a class="article-anchor" href="#backslash" aria-hidden="true"></a></h3>
+
+<p>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果（但不用 <code>&lt;em&gt;</code> 标签），你可以在星号的前面加上反斜杠：</p>
+<pre><code>\*literal asterisks\*
+</code></pre><p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+<pre><code>\   反斜线
+`   反引号
+*   星号
+_   底线
+{}  花括号
+[]  方括号
+()  括弧
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   惊叹号
 </code></pre>
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2017-02-20T02:32:18.000Z" itemprop="dateModified">上次更新：2017-02-20</time>
+                <time class="article-footer-updated" datetime="2017-02-21T06:25:25.000Z" itemprop="dateModified">上次更新：2017-02-21</time>
                 <a href="/docs/index.html" class="article-footer-next" title="概述"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
               </footer>
               
@@ -284,14 +508,14 @@ line 3 of code
           <aside id="article-toc" role="navigation">
             <div id="article-toc-inner">
               <strong class="sidebar-title">目录</strong>
-              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Typography"><span class="toc-text">Typography</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Headings"><span class="toc-text">Headings</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#h1-Heading"><span class="toc-text">h1 Heading</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#h2-Heading"><span class="toc-text">h2 Heading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#h3-Heading"><span class="toc-text">h3 Heading</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#h4-Heading"><span class="toc-text">h4 Heading</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#h5-Heading"><span class="toc-text">h5 Heading</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#h6-Heading"><span class="toc-text">h6 Heading</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Horizontal-Rules"><span class="toc-text">Horizontal Rules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Body-Copy"><span class="toc-text">Body Copy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emphasis"><span class="toc-text">Emphasis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bold"><span class="toc-text">Bold</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Italics"><span class="toc-text">Italics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strikethrough"><span class="toc-text">strikethrough</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blockquotes"><span class="toc-text">Blockquotes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lists"><span class="toc-text">Lists</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unordered"><span class="toc-text">Unordered</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ordered"><span class="toc-text">Ordered</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Inline-code"><span class="toc-text">Inline code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Indented-code"><span class="toc-text">Indented code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-code-“fences”"><span class="toc-text">Block code “fences”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Syntax-highlighting"><span class="toc-text">Syntax highlighting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tables"><span class="toc-text">Tables</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Right-aligned-text"><span class="toc-text">Right aligned text</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Links"><span class="toc-text">Links</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-link"><span class="toc-text">Basic link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-a-title"><span class="toc-text">Add a title</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Named-Anchors"><span class="toc-text">Named Anchors</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Images"><span class="toc-text">Images</span></a></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#overview"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#philosophy"><span class="toc-text">宗旨</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html"><span class="toc-text">兼容 HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#autoescape"><span class="toc-text">特殊字符自动转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#block"><span class="toc-text">区块元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#p"><span class="toc-text">段落和换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#header"><span class="toc-text">标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blockquote"><span class="toc-text">区块引用 Blockquotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list"><span class="toc-text">列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#precode"><span class="toc-text">代码区块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hr"><span class="toc-text">分隔线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span"><span class="toc-text">区段元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#link"><span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#em"><span class="toc-text">强调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#img"><span class="toc-text">图片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#misc"><span class="toc-text">其它</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#autolink"><span class="toc-text">自动链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#backslash"><span class="toc-text">反斜杠</span></a></li></ol></li></ol>
               <a href="#" id="article-toc-top">回到顶部</a>
             </div>
           </aside>
         </div>
       </article>
       <aside id="sidebar" role="navigation">
-  <div class="inner"><strong class="sidebar-title">开始使用</strong><a href="/docs/index.html" class="sidebar-link">概述</a><strong class="sidebar-title">HTML规范</strong><a href="/docs/html/code.html" class="sidebar-link">代码规范</a><a href="/docs/html/note.html" class="sidebar-link">注释规范</a><a href="/docs/html/template.html" class="sidebar-link">文件模版</a><a href="/docs/html/webapp.html" class="sidebar-link">WebApp Meta</a><strong class="sidebar-title">图片规范</strong><a href="/docs/image/format.html" class="sidebar-link">图片格式</a><a href="/docs/image/size.html" class="sidebar-link">图片大小</a><a href="/docs/image/quality.html" class="sidebar-link">图片质量</a><a href="/docs/image/import.html" class="sidebar-link">图片引入</a><strong class="sidebar-title">CSS 规范</strong><a href="/docs/css/code.html" class="sidebar-link">代码规范</a><a href="/docs/css/note.html" class="sidebar-link">注释规范</a><a href="/docs/css/sass.html" class="sidebar-link">SASS 规范</a><a href="/docs/css/less.html" class="sidebar-link">LESS 规范</a><a href="/docs/css/reset.html" class="sidebar-link">重置样式</a><a href="/docs/css/query.html" class="sidebar-link">媒体查询</a><a href="/docs/css/webkit.html" class="sidebar-link">移动端常用私有属性</a><strong class="sidebar-title">Javascript 规范</strong><a href="/docs/js/code.html" class="sidebar-link">代码规范</a><a href="/docs/js/compat.html" class="sidebar-link">ECMAScript 兼容性</a><a href="/docs/js/jQuery.html" class="sidebar-link">jQuery 代码规范</a><a href="/docs/js/performance.html" class="sidebar-link">性能优化</a><a href="/docs/js/resource.html" class="sidebar-link">资源</a><strong class="sidebar-title">命名规范</strong><a href="/docs/name/dir.html" class="sidebar-link">目录命名</a><a href="/docs/name/image.html" class="sidebar-link">图片命名</a><a href="/docs/name/htmlcss.html" class="sidebar-link">HTML/CSS 命名</a><a href="/docs/name/classname.html" class="sidebar-link">ClassName 命名</a></div>
+  <div class="inner"><strong class="sidebar-title">开始使用</strong><a href="/docs/index.html" class="sidebar-link">概述</a><strong class="sidebar-title">HTML规范</strong><a href="/docs/html/code.html" class="sidebar-link">代码规范</a><a href="/docs/html/note.html" class="sidebar-link">注释规范</a><a href="/docs/html/template.html" class="sidebar-link">文件模版</a><a href="/docs/html/webapp.html" class="sidebar-link">WebApp Meta</a><strong class="sidebar-title">图片规范</strong><a href="/docs/image/format.html" class="sidebar-link">图片格式</a><a href="/docs/image/size.html" class="sidebar-link">图片大小</a><a href="/docs/image/quality.html" class="sidebar-link">图片质量</a><a href="/docs/image/import.html" class="sidebar-link">图片引入</a><strong class="sidebar-title">CSS 规范</strong><a href="/docs/css/code.html" class="sidebar-link">代码规范</a><a href="/docs/css/note.html" class="sidebar-link">注释规范</a><a href="/docs/css/sass.html" class="sidebar-link">SASS 规范</a><a href="/docs/css/less.html" class="sidebar-link">LESS 规范</a><a href="/docs/css/reset.html" class="sidebar-link">重置样式</a><a href="/docs/css/query.html" class="sidebar-link">媒体查询</a><a href="/docs/css/webkit.html" class="sidebar-link">移动端常用私有属性</a><strong class="sidebar-title">Javascript 规范</strong><a href="/docs/js/code.html" class="sidebar-link">代码规范</a><a href="/docs/js/compat.html" class="sidebar-link">开发经验</a><a href="/docs/js/jQuery.html" class="sidebar-link">jQuery 代码规范</a><a href="/docs/js/performance.html" class="sidebar-link">性能优化</a><a href="/docs/js/resource.html" class="sidebar-link">资源</a><strong class="sidebar-title">命名规范</strong><a href="/docs/name/dir.html" class="sidebar-link">目录命名</a><a href="/docs/name/image.html" class="sidebar-link">图片命名</a><a href="/docs/name/htmlcss.html" class="sidebar-link">HTML/CSS 命名</a><a href="/docs/name/classname.html" class="sidebar-link">ClassName 命名</a></div>
 </aside>
     </div>
   </div>
@@ -321,7 +545,7 @@ line 3 of code
       </li>
     </ul>
     
-      <strong class="mobile-nav-title">开始使用</strong><a href="/docs/index.html" class="mobile-nav-link">概述</a><strong class="mobile-nav-title">HTML规范</strong><a href="/docs/html/code.html" class="mobile-nav-link">代码规范</a><a href="/docs/html/note.html" class="mobile-nav-link">注释规范</a><a href="/docs/html/template.html" class="mobile-nav-link">文件模版</a><a href="/docs/html/webapp.html" class="mobile-nav-link">WebApp Meta</a><strong class="mobile-nav-title">图片规范</strong><a href="/docs/image/format.html" class="mobile-nav-link">图片格式</a><a href="/docs/image/size.html" class="mobile-nav-link">图片大小</a><a href="/docs/image/quality.html" class="mobile-nav-link">图片质量</a><a href="/docs/image/import.html" class="mobile-nav-link">图片引入</a><strong class="mobile-nav-title">CSS 规范</strong><a href="/docs/css/code.html" class="mobile-nav-link">代码规范</a><a href="/docs/css/note.html" class="mobile-nav-link">注释规范</a><a href="/docs/css/sass.html" class="mobile-nav-link">SASS 规范</a><a href="/docs/css/less.html" class="mobile-nav-link">LESS 规范</a><a href="/docs/css/reset.html" class="mobile-nav-link">重置样式</a><a href="/docs/css/query.html" class="mobile-nav-link">媒体查询</a><a href="/docs/css/webkit.html" class="mobile-nav-link">移动端常用私有属性</a><strong class="mobile-nav-title">Javascript 规范</strong><a href="/docs/js/code.html" class="mobile-nav-link">代码规范</a><a href="/docs/js/compat.html" class="mobile-nav-link">ECMAScript 兼容性</a><a href="/docs/js/jQuery.html" class="mobile-nav-link">jQuery 代码规范</a><a href="/docs/js/performance.html" class="mobile-nav-link">性能优化</a><a href="/docs/js/resource.html" class="mobile-nav-link">资源</a><strong class="mobile-nav-title">命名规范</strong><a href="/docs/name/dir.html" class="mobile-nav-link">目录命名</a><a href="/docs/name/image.html" class="mobile-nav-link">图片命名</a><a href="/docs/name/htmlcss.html" class="mobile-nav-link">HTML/CSS 命名</a><a href="/docs/name/classname.html" class="mobile-nav-link">ClassName 命名</a>
+      <strong class="mobile-nav-title">开始使用</strong><a href="/docs/index.html" class="mobile-nav-link">概述</a><strong class="mobile-nav-title">HTML规范</strong><a href="/docs/html/code.html" class="mobile-nav-link">代码规范</a><a href="/docs/html/note.html" class="mobile-nav-link">注释规范</a><a href="/docs/html/template.html" class="mobile-nav-link">文件模版</a><a href="/docs/html/webapp.html" class="mobile-nav-link">WebApp Meta</a><strong class="mobile-nav-title">图片规范</strong><a href="/docs/image/format.html" class="mobile-nav-link">图片格式</a><a href="/docs/image/size.html" class="mobile-nav-link">图片大小</a><a href="/docs/image/quality.html" class="mobile-nav-link">图片质量</a><a href="/docs/image/import.html" class="mobile-nav-link">图片引入</a><strong class="mobile-nav-title">CSS 规范</strong><a href="/docs/css/code.html" class="mobile-nav-link">代码规范</a><a href="/docs/css/note.html" class="mobile-nav-link">注释规范</a><a href="/docs/css/sass.html" class="mobile-nav-link">SASS 规范</a><a href="/docs/css/less.html" class="mobile-nav-link">LESS 规范</a><a href="/docs/css/reset.html" class="mobile-nav-link">重置样式</a><a href="/docs/css/query.html" class="mobile-nav-link">媒体查询</a><a href="/docs/css/webkit.html" class="mobile-nav-link">移动端常用私有属性</a><strong class="mobile-nav-title">Javascript 规范</strong><a href="/docs/js/code.html" class="mobile-nav-link">代码规范</a><a href="/docs/js/compat.html" class="mobile-nav-link">开发经验</a><a href="/docs/js/jQuery.html" class="mobile-nav-link">jQuery 代码规范</a><a href="/docs/js/performance.html" class="mobile-nav-link">性能优化</a><a href="/docs/js/resource.html" class="mobile-nav-link">资源</a><strong class="mobile-nav-title">命名规范</strong><a href="/docs/name/dir.html" class="mobile-nav-link">目录命名</a><a href="/docs/name/image.html" class="mobile-nav-link">图片命名</a><a href="/docs/name/htmlcss.html" class="mobile-nav-link">HTML/CSS 命名</a><a href="/docs/name/classname.html" class="mobile-nav-link">ClassName 命名</a>
     
   </div>
   <div id="mobile-lang-select-wrap">
