@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://guide.chenzh.net/docs/common/How-To-Ask-Questions-The-Smart-Way.html</loc>
+    
+    <lastmod>2017-02-21T08:27:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://guide.chenzh.net/docs/css/less.html</loc>
     
     <lastmod>2017-02-21T08:21:29.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://guide.chenzh.net/docs/name/classname.html</loc>
     
     <lastmod>2017-02-21T06:51:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://guide.chenzh.net/docs/common/How-To-Ask-Questions-The-Smart-Way.html</loc>
-    
-    <lastmod>2017-02-21T06:43:26.000Z</lastmod>
     
   </url>
   
@@ -72,7 +72,7 @@
   </url>
   
   <url>
-    <loc>http://guide.chenzh.net/docs/js/jQuery.html</loc>
+    <loc>http://guide.chenzh.net/docs/js/jquery.html</loc>
     
     <lastmod>2017-02-21T05:21:52.000Z</lastmod>
     
@@ -191,35 +191,7 @@
   </url>
   
   <url>
-    <loc>http://guide.chenzh.net/docs/common.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://guide.chenzh.net/docs/image/size.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://guide.chenzh.net/docs/issues.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://guide.chenzh.net/docs/image/format.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://guide.chenzh.net/index.html</loc>
+    <loc>http://guide.chenzh.net/docs/image/quality.html</loc>
     
     <lastmod>2017-02-20T02:16:16.000Z</lastmod>
     
@@ -233,7 +205,35 @@
   </url>
   
   <url>
-    <loc>http://guide.chenzh.net/docs/image/quality.html</loc>
+    <loc>http://guide.chenzh.net/docs/image/size.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://guide.chenzh.net/docs/image/format.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://guide.chenzh.net/docs/common.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://guide.chenzh.net/index.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://guide.chenzh.net/docs/issues.html</loc>
     
     <lastmod>2017-02-20T02:16:16.000Z</lastmod>
     
