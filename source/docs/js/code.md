@@ -1,3 +1,5 @@
+title: 代码规范
+---
 
 *用更合理的方式写 JavaScript*
 

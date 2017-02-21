@@ -40,7 +40,7 @@ sidebar:
     js_code: 代码规范
     js_compat: ECMAScript 兼容性
     js_jQuery: jQuery 代码规范
-    js_performance: 性能
+    js_performance: 性能优化
     js_resource: 资源
     name: 命名规范
     name_dir: 目录命名

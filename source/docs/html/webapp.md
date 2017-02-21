@@ -9,14 +9,60 @@ WebApp目的在于使其界面和行为在某种程度上类似于原生APP应�
 
 WebApp可以通过设置 meta 标签来改变页面的一些表现，有些 meta 设置在 Safari 应用或原生 App 的内嵌网页中都可以生效，而有些设置侧需要将应用添加到主屏幕的时候才会生效。
 
+## 移动端自适应
+
+```js
+;(function() {
+  var doc = window.document;
+  var documentElement = doc.documentElement;
+  var viewport = doc.querySelector('meta[name="viewport"]');
+  var isAndroid = navigator.appVersion.match(/android/gi);
+  var isIos = navigator.appVersion.match(/iphone|ipod|ipad/gi) && !isAndroid;
+  var designWidth = 750;
+
+  var pixelRatio = isIos ? window.devicePixelRatio >= 3 ? 3 : window.devicePixelRatio >= 2 ? 2 : 1 : 1;
+  var scale = 1 / pixelRatio;
+  var timeoutId;
+
+  documentElement.setAttribute('data-dpr', pixelRatio);
+  if (!viewport) {
+    viewport = doc.createElement('meta');
+    viewport.setAttribute('name', 'viewport');
+    viewport.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+    documentElement.firstElementChild.appendChild(viewport);
+  }
+
+  mresize();
+  window.addEventListener('resize', mresize, false);
+
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      mresize()
+    }
+  }, false);
+
+  function mresize() {
+    var innerWidth = documentElement.getBoundingClientRect().width;
+    if (innerWidth / pixelRatio > designWidth) {
+      innerWidth = designWidth * pixelRatio;
+    }
+
+    var fontSize = innerWidth / designWidth * 100;
+    documentElement.style.fontSize = fontSize + 'px';
+  }
+})();
+```
+
 
 ### Viewport Meta Tag
 
 #### 通用类设置
+
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, 
 maximum-scale=1.0, user-scalable=no">
 ``` 
+
 * width -- viewport的宽度
 * height -- viewport的高度
 * initial-scale -- 初始的缩放比例
@@ -67,15 +113,14 @@ Setting user-scalable to no also prevents a webpage from scrolling when entering
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
 > This meta tag has no effect unless you first specify full-screen mode as described in apple-apple-mobile-web-app-capable.
-> 
-If content is set to default, the status bar appears normal. If set to black, the status bar has a black background. If set to black-translucent, the status bar is black and translucent. If set to default or black, the web content is displayed below the status bar. If set to black-translucent, the web content is displayed on the entire screen, partially obscured by the status bar. The default value is default.
+> If content is set to default, the status bar appears normal. If set to black, the status bar has a black background. If set to black-translucent, the status bar is black and translucent. If set to default or black, the web content is displayed below the status bar. If set to black-translucent, the web content is displayed on the entire screen, partially obscured by the status bar. The default value is default.
 
 * 此 meta 设置只在全屏模式生效
 * 默认值是 default
 * content="black"，状态栏背景黑色，网页内容在状态栏下面
 * content="black-translucent"，状态栏半透明，背景黑色，网页内容占满全屏
 
-*该设置在 iOS6 和 iOS7 表现还可以，但到了 iOS8 后会出现各种问题，而且在 iOS9 中并没有生效。参阅：[iOS 8: web app status bar position and resizing problems](http://stackoverflow.com/questions/25884806/ios-8-web-app-status-bar-position-and-resizing-problems)*
+* 该设置在 iOS6 和 iOS7 表现还可以，但到了 iOS8 后会出现各种问题，而且在 iOS9 中并没有生效。参阅：[iOS 8: web app status bar position and resizing problems](http://stackoverflow.com/questions/25884806/ios-8-web-app-status-bar-position-and-resizing-problems)*
 
 #### format-detection
 
