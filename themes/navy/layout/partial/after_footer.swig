@@ -1,5 +1,5 @@
 <!-- Scripts -->
-<!-- build:js guide/js/main.js -->
+<!-- build:js build/js/main.js -->
 {{ js('js/toc') }}
 {{ js('js/mobile_nav') }}
 <!-- endbuild -->

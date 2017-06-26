@@ -14,7 +14,7 @@
   <meta name="msapplication-TileColor" content="#2f83cd">
   <meta name="msapplication-TileImage" content="{{ url_for('icon/mstile-144x144.png') }}">
   <!-- CSS -->
-  <!-- build:css guide/css/navy.css -->
+  <!-- build:css build/css/navy.css -->
   {{ css('css/navy') }}
   <!-- endbuild -->
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">

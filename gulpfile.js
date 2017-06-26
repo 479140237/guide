@@ -25,7 +25,7 @@ gulp.task('useref', /*['screenshot'],*/ function(){
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.revReplace({
-      prefix: '/'
+      prefix: '/guide/'
     }))
     .pipe(gulp.dest('public'));
 });
