@@ -9,7 +9,7 @@ var dirs = {
   screenshots: 'public/build/screenshots'
 };
 
-gulp.task('useref', ['screenshot'], function(){
+gulp.task('useref', /*['screenshot'],*/ function(){
   var assets = $.useref.assets({
     searchPath: 'public'
   });
@@ -69,4 +69,4 @@ gulp.task('screenshot:revreplace', ['screenshot:rev'], function(){
 });
 
 gulp.task('screenshot', ['screenshot:rev', 'screenshot:resize', 'screenshot:revreplace']);
-gulp.task('default', ['useref', 'screenshot']);
+gulp.task('default', ['useref'/*, 'screenshot'*/]);
