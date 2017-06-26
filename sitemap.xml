@@ -100,9 +100,37 @@
   </url>
   
   <url>
+    <loc>https://wdzjfe.github.io/guide/docs/css/webkit.html</loc>
+    
+    <lastmod>2017-02-20T09:59:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wdzjfe.github.io/guide/docs/css/query.html</loc>
+    
+    <lastmod>2017-02-20T09:57:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wdzjfe.github.io/guide/docs/css/note.html</loc>
     
     <lastmod>2017-02-20T09:56:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wdzjfe.github.io/guide/docs/css/code.html</loc>
+    
+    <lastmod>2017-02-20T09:56:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wdzjfe.github.io/guide/docs/html/code.html</loc>
+    
+    <lastmod>2017-02-20T09:55:42.000Z</lastmod>
     
   </url>
   
@@ -149,34 +177,6 @@
   </url>
   
   <url>
-    <loc>https://wdzjfe.github.io/guide/docs/html/code.html</loc>
-    
-    <lastmod>2017-02-20T02:41:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wdzjfe.github.io/guide/docs/css/webkit.html</loc>
-    
-    <lastmod>2017-02-20T02:40:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wdzjfe.github.io/guide/docs/css/query.html</loc>
-    
-    <lastmod>2017-02-20T02:39:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wdzjfe.github.io/guide/docs/css/code.html</loc>
-    
-    <lastmod>2017-02-20T02:34:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wdzjfe.github.io/guide/docs/image/import.html</loc>
     
     <lastmod>2017-02-20T02:29:52.000Z</lastmod>
@@ -191,35 +191,7 @@
   </url>
   
   <url>
-    <loc>https://wdzjfe.github.io/guide/docs/image/quality.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wdzjfe.github.io/guide/docs/css/reset.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wdzjfe.github.io/guide/docs/image/size.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wdzjfe.github.io/guide/docs/image/format.html</loc>
-    
-    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wdzjfe.github.io/guide/docs/common.html</loc>
+    <loc>https://wdzjfe.github.io/guide/docs/issues.html</loc>
     
     <lastmod>2017-02-20T02:16:16.000Z</lastmod>
     
@@ -233,7 +205,35 @@
   </url>
   
   <url>
-    <loc>https://wdzjfe.github.io/guide/docs/issues.html</loc>
+    <loc>https://wdzjfe.github.io/guide/docs/image/quality.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wdzjfe.github.io/guide/docs/common.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wdzjfe.github.io/guide/docs/css/reset.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wdzjfe.github.io/guide/docs/image/format.html</loc>
+    
+    <lastmod>2017-02-20T02:16:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wdzjfe.github.io/guide/docs/image/size.html</loc>
     
     <lastmod>2017-02-20T02:16:16.000Z</lastmod>
     
